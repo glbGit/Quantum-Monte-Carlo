@@ -33,7 +33,7 @@ double energy_correction = 10.*PI*D*rho*pow(b, 5)*pow(2./L, 4) + 8./3.*PI*Epsilo
 /**
  * Extracts a random number in 
  * range [-L,L] according to 
- * normal distribution.
+ * Gaussian distribution.
  */
 double rgauss(double m, double sigma2) 
 {
@@ -48,16 +48,16 @@ double rgauss(double m, double sigma2)
 }
 
 /**
- * Histrogram of N_t values 
- * of v in range [-L,L]  
- * printed to "histo.dat".
+ * Print histrogram of N_t values 
+ * of v in range [-L,L].
+ *
  */
 void histo(double *v)
 {
 	int i, j, k;
 	FILE *out;
 	double h[RES];
-	out = fopen("histo.dat", "w+");
+	out = fopen("histogram.dat", "w+");
 	zeroArray(h, RES);
 	for (i = 0; i < RES; i++)
 		for (j = 0; j < P; j++)
@@ -100,7 +100,7 @@ void drawConfig(walker R)
 	FILE *out;
 	out = fopen("config.dat", "w+");
 	for (i = 0; i < N; i++)
-		fprintf(out, "%lg\t%lg\t%lg\n", R.r[i].x, R.r[i].y, R.r[i].z);
+		fprintf(out, "%lg %lg %lg\n", R.r[i].x, R.r[i].y, R.r[i].z);
 }
 
 
@@ -258,7 +258,7 @@ int DMC_step(walker *R, double *E, int nw, int gen)
 	
 }
 
-//Diffusion Monte Carlo
+// Diffusion Monte Carlo
 double DMC(walker *R) 
 {
 	int i, nw = P, M = 3/dTau;
