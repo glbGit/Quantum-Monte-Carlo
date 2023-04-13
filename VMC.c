@@ -6,10 +6,10 @@
 #include "utils.h"
 
 #define N 32			
-#define rho 0.365		/* rho = N/V	*/
-#define L 4.44         	/* V = L^3,  L = (N/rho)^1/3  */
+#define rho 0.365		// rho = N/V	
+#define L 4.44         		// V = L^3,  L = (N/rho)^1/3  
 #define Epsilon 10.22
-#define D 0.92814        /* D (K sigma^2) = h_bar^2/(2m)  */
+#define D 0.92814        	// D (K sigma^2) = h_bar^2/(2m)  
 #define STEPS 32000
 #define eps 1.e-5 
 #define PI 3.1415926535
